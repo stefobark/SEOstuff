@@ -66,21 +66,25 @@ foreach($csv as $row){
 			$alexa = SEOstats\Alexa::getGlobalRank();
 			$pagerank = SEOstats\Google::getPageRank();
 		
-		 //echo "<h3>" . $domains[0] . "</h3>Alexa rank = " . SEOstats\Alexa::getGlobalRank() . "<br />";
-		 //echo "PageRank = " . SEOstats\Google::getPageRank() . "<br /><br />";
+		 echo "<h3>" . $domains[0] . "</h3>Alexa rank = " . SEOstats\Alexa::getGlobalRank() . "<br />";
+		 echo "PageRank = " . SEOstats\Google::getPageRank() . "<br /><br />";
 		 
+		//----------------------------------------------------------------------------------------|
+		//--------------------uncomment this stuff when you want to insert into MySQL!!-----------|
+		//----------------------------------------------------------------------------------------|
+		
 		 /* Prepared statement, stage 1: prepare */
-		if (!($stmt = $mysqli->prepare("INSERT INTO seo (url, alexa, pagerank, link_num, linked_pages) VALUES (?,?,?,?,?)"))) {
-			 echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-		}
+		//if (!($stmt = $mysqli->prepare("INSERT INTO seo (url, alexa, pagerank, link_num, linked_pages) VALUES (?,?,?,?,?)"))) {
+		//	 echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+		//}
 
-		if (!$stmt->bind_param("siiii", $url, $alexa, $pagerank, $link_num, $linked_pages)) {
-			 echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-		}
+		//if (!$stmt->bind_param("siiii", $url, $alexa, $pagerank, $link_num, $linked_pages)) {
+		//	 echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		//}
 
-		if (!$stmt->execute()) {
-			 echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-		}
+		//if (!$stmt->execute()) {
+		//	 echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+		//}
 		 
 	  }
 	}
